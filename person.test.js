@@ -1,4 +1,6 @@
 let person = require('./person');
+let axios = require('axios');
+
 
 describe('All my person tests', ()=>{
     test('nancy is a millennial', ()=>{
@@ -21,3 +23,9 @@ describe('All my person tests', ()=>{
 })
 
 
+test('async stuff', ()=>{
+    expect.assertions(1) 
+    return axios.get('https://joes-autos.herokuapp.com/api/vehicles?color=green').then(res=>{
+        expect(res.data.length).toBe(3)
+    })
+})

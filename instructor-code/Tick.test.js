@@ -1,4 +1,6 @@
 let Tick = require('./Tick');
+let axios = require('axios');
+let fns = require('./functions');
 
 
 test('tick',() => {
@@ -8,7 +10,11 @@ test('tick',() => {
     let result = timer.checkTimer()
 
     expect(result).toBe(initialValue + 1)
+})
 
+test('async stuff', () => {
+    expect.assertions(1)
+    return fns.getCars().then(data)
 })
 
 
